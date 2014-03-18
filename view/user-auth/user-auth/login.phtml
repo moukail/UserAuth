@@ -1,0 +1,59 @@
+<?php $this->headScript()->prependFile($this->basePath().'/js/user-login.js');?>
+
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="page-header">
+            <h1><?php echo $this->translate("Login"); ?> <small>Subtext for header</small></h1>
+        </div>
+		<?php
+		$form = $this->form;
+		$form->setAttribute('action', '/userauth/authenticate');
+		$form->prepare();
+
+		echo $this->form()->openTag($form);
+		?>
+		<fieldset>
+
+			<div class="form-group">
+				<label for="email" class="col-lg-2 col-md-2 col-sm-2 control-label"><?php echo $this->translate('Email'); ?></label>
+				<div class="col-lg-10  col-md-10 col-sm-10">
+					<?php echo $this->formRow($form->get('email')); ?>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="password" class="col-lg-2 col-md-2 col-sm-2 control-label"><?php echo  $this->translate('Password'); ?></label>
+				<div class="col-lg-10  col-md-10 col-sm-10">
+					<?php echo $this->formRow($form->get('password')); ?>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="remember" class="col-lg-2 col-md-2 col-sm-2 control-label"><?php echo  $this->translate('Remember me..?'); ?></label>
+				<div class="col-lg-2  col-md-2 col-sm-2">
+					<?php echo $this->formRow($form->get('remember')); ?>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="first-name" class="col-lg-2 col-md-2 col-sm-2 control-label"></label>
+				<div class="col-lg-10  col-md-10 col-sm-10">
+					<?php echo $this->formRow($form->get('submit')); ?>
+				</div>
+			</div>
+
+
+		</fieldset>
+		<?php echo $this->form()->closeTag(); ?>
+<?php
+	if ($this->messages) {
+		echo '<ul>';
+		foreach ($this->messages as $message) {
+			echo '<li>' . $message . '</li>';
+		}
+		echo '</ul>';
+	}
+	?>
+    </div>
+	
+</div>
