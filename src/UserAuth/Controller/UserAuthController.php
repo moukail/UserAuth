@@ -84,7 +84,7 @@ class UserAuthController extends AbstractActionController
 				if ($result->isValid()) {
 					$redirect = '/userauths/success/index';
 					//check if it has rememberMe :
-					if ($request->getPost('rememberme') == 1) {
+					if ($request->getPost('remember') == 1) {
 						$this->getSessionStorage()
 							->setRememberMe(1);
 						//set storage again 
